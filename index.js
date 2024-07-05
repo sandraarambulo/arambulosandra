@@ -23,30 +23,30 @@ var product1 = document.getElementById("product1")
                     //carts.textContent += carts.value.toString() + "\n";
                     carts.textContent += order
             }
-           if (parseFloat(qty3.value) > 0){
-                    var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + '------' + product3.textContent + '------ Php' + (parseFloat(qty3.value)*parseFloat(price3.textContent)) + '\n'
-                    //carts.textContent += carts.value.toString() + "\n";
-                    carts.textContent += order
-            }
-            if (parseFloat(qty4.value) > 0){
-                    var order = qty4.value.toString() + ' pc/s x ' + price4.textContent + '------' + product4.textContent + '------ Php' + (parseFloat(qty4.value)*parseFloat(price4.textContent)) + '\n'
-                    //carts.textContent += carts.value.toString() + "\n";
-                    carts.textContent += order
-            }
-            if (parseFloat(qty5.value) > 0){
-                    var order = qty5.value.toString() + ' pc/s x ' + price5.textContent + '------' + product5.textContent + '------ Php' + (parseFloat(qty5.value)*parseFloat(price5.textContent)) + '\n'
-                    //carts.textContent += carts.value.toString() + "\n";
-                    carts.textContent += order
-            }
-            if (parseFloat(qty6.value) > 0){
-                    var order = qty6.value.toString() + ' pc/s x ' + price6.textContent + '------' + product6.textContent + '------ Php' + (parseFloat(qty6.value)*parseFloat(price6.textContent)) + '\n'
-                    //carts.textContent += carts.value.toString() + "\n";
-                    carts.textContent += order
-            }
             }
             qty1.addEventListener("keyup", addOrder);
             qty2.addEventListener("keyup", addOrder);
-            qty3.addEventListener("keyup", addOrder);
-            qty4.addEventListener("keyup", addOrder);
-            qty5.addEventListener("keyup", addOrder);
-            qty6.addEventListener("keyup", addOrder);
+
+
+function addOrder() {
+            carts.textContent = "";
+            let totalAmount = 0;
+            if (parseFloat(qty1.value) > 0) {
+                var order = qty1.value.toString() + 'pc/s x ' + price1.textContent + '-----' + product1.textContent + '-----Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+                carts.textContent += order;
+                totalAmount += parseFloat(qty1.value) * parseFloat(price1.textContent);
+            }
+ total.value = totalAmount.toFixed(2);
+            calculateChange();
+}
+
+function calculateChange() {
+            let totalAmount = parseFloat(total.value);
+            let cashTendered = parseFloat(cash.value);
+            if (!isNaN(cashTendered) && cashTendered >= totalAmount) {
+                change.value = (cashTendered - totalAmount).toFixed(2);
+            } else {
+                change.value = "";
+            }
+        }
+        document.getElementById('cash').onkeyup = calculateChange;
