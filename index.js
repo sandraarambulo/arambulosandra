@@ -41,12 +41,17 @@
             }
             }
 
+           if (parseFloat(qty3.value) > 0){
+                    var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + '------' + product2.textContent + '------ Php' + (parseFloat(qty3.value)*parseFloat(price3.textContent)) + '\n'
+                    //carts.textContent += carts.value.toString() + "\n";
+                    carts.textContent += order
+            }
+            }
+
             qty1.addEventListener("keyup", addOrder);
             qty2.addEventListener("keyup", addOrder);
             qty3.addEventListener("keyup", addOrder);
-            qty4.addEventListener("keyup", addOrder);
-            qty5.addEventListener("keyup", addOrder);
-            qty6.addEventListener("keyup", addOrder);
+            
 
             function addOrder() {
             carts.textContent = "";
