@@ -86,9 +86,8 @@ function calculateChange() {
     if (!isNaN(cashTendered) && cashTendered >= totalAmount) {
         change.value = (cashTendered - totalAmount).toFixed(2);
     } else {
-        change.value = ""; // Clear change if cash is not enough
+        change.value = ""; 
     }
 }
 
-// Event listener for cash input to calculate change dynamically
 cash.addEventListener("keyup", calculateChange);
