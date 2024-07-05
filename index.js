@@ -32,7 +32,8 @@ var product1 = document.getElementById("product1")
             let cashTendered = parseFloat(cash.value);
             if (!isNaN(cashTendered) && cashTendered >= totalAmount) {
                 change.value = (cashTendered - totalAmount).toFixed(2);
-            } else {
+            } 
+             else {
                 change.value = "";
             }
         }
