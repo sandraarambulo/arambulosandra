@@ -1,4 +1,4 @@
-var product1 = document.getElementById("product1")
+            var product1 = document.getElementById("product1")
             var qty1 = document.getElementById("qty1")
             var price1 = document.getElementById("price1")
 
@@ -28,8 +28,8 @@ var product1 = document.getElementById("product1")
             qty2.addEventListener("keyup", addOrder);
 
 
-function addOrder() {
-            carts.textContent = "";
+           function addOrder() {
+             carts.textContent = "";
             let totalAmount = 0;
             if (parseFloat(qty1.value) > 0) {
                 var order = qty1.value.toString() + 'pc/s x ' + price1.textContent + '-----' + product1.textContent + '-----Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
@@ -40,8 +40,8 @@ function addOrder() {
             calculateChange();
 }
 
-function calculateChange() {
-            let totalAmount = parseFloat(total.value);
+           function calculateChange() {
+             let totalAmount = parseFloat(total.value);
             let cashTendered = parseFloat(cash.value);
             if (!isNaN(cashTendered) && cashTendered >= totalAmount) {
                 change.value = (cashTendered - totalAmount).toFixed(2);
