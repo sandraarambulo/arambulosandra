@@ -137,3 +137,14 @@ var product1 = document.getElementById("product1")
  total.value = totalAmount.toFixed(2);
             calculateChange();
 }
+
+           function calculateChange() {
+            let totalAmount = parseFloat(total.value);
+            let cashTendered = parseFloat(cash.value);
+            if (!isNaN(cashTendered) && cashTendered >= totalAmount) {
+                change.value = (cashTendered - totalAmount).toFixed(2);
+            } else {
+                change.value = "";
+            }
+        }
+        document.getElementById('cash').onkeyup = calculateChange;
