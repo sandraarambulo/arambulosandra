@@ -1,4 +1,4 @@
-            var product1 = document.getElementById("product1")
+var product1 = document.getElementById("product1")
             var qty1 = document.getElementById("qty1")
             var price1 = document.getElementById("price1")
 
@@ -6,11 +6,11 @@
             var qty2 = document.getElementById("qty2")
             var price2 = document.getElementById("price2")
 
-            var product3 = document.getElementById("product3")
+           var product3 = document.getElementById("product3")
             var qty3 = document.getElementById("qty3")
             var price3 = document.getElementById("price3")
 
-            var product4 = document.getElementById("product4")
+           var product4 = document.getElementById("product4")
             var qty4 = document.getElementById("qty4")
             var price4 = document.getElementById("price4")
 
@@ -18,7 +18,7 @@
             var qty5 = document.getElementById("qty5")
             var price5 = document.getElementById("price5")
 
-            var product6 = document.getElementById("product6")
+           var product6 = document.getElementById("product6")
             var qty6 = document.getElementById("qty6")
             var price6 = document.getElementById("price6")
 
@@ -39,21 +39,37 @@
                     //carts.textContent += carts.value.toString() + "\n";
                     carts.textContent += order
             }
-            }
-
-           if (parseFloat(qty3.value) > 0){
-                    var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + '------' + product2.textContent + '------ Php' + (parseFloat(qty3.value)*parseFloat(price3.textContent)) + '\n'
+                if (parseFloat(qty3.value) > 0){
+                    var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + '------' + product3.textContent + '------ Php' + (parseFloat(qty2.value)*parseFloat(price2.textContent)) + '\n'
                     //carts.textContent += carts.value.toString() + "\n";
                     carts.textContent += order
             }
+                if (parseFloat(qty4.value) > 0){
+                    var order = qty4.value.toString() + ' pc/s x ' + price4.textContent + '------' + product4.textContent + '------ Php' + (parseFloat(qty2.value)*parseFloat(price2.textContent)) + '\n'
+                    //carts.textContent += carts.value.toString() + "\n";
+                    carts.textContent += order 
             }
 
+                if (parseFloat(qty5.value) > 0){
+                    var order = qty5.value.toString() + ' pc/s x ' + price5.textContent + '------' + product5.textContent + '------ Php' + (parseFloat(qty2.value)*parseFloat(price2.textContent)) + '\n'
+                    //carts.textContent += carts.value.toString() + "\n";
+                    carts.textContent += order 
+            }
+
+               if (parseFloat(qty6.value) > 0){
+                    var order = qty6.value.toString() + ' pc/s x ' + price6.textContent + '------' + product6.textContent + '------ Php' + (parseFloat(qty2.value)*parseFloat(price2.textContent)) + '\n'
+                    //carts.textContent += carts.value.toString() + "\n";
+                    carts.textContent += order 
+            }
+                        
             qty1.addEventListener("keyup", addOrder);
             qty2.addEventListener("keyup", addOrder);
             qty3.addEventListener("keyup", addOrder);
-            
+            qty4.addEventListener("keyup", addOrder);
+            qty5.addEventListener("keyup", addOrder);
+            qty6.addEventListener("keyup", addOrder);
 
-            function addOrder() {
+             function addOrder() {
             carts.textContent = "";
             let totalAmount = 0;
             if (parseFloat(qty1.value) > 0) {
@@ -64,13 +80,60 @@
  total.value = totalAmount.toFixed(2);
             calculateChange();
 }
-            function calculateChange() {
-            let totalAmount = parseFloat(total.value);
-            let cashTendered = parseFloat(cash.value);
-            if (!isNaN(cashTendered) && cashTendered >= totalAmount) {
-                change.value = (cashTendered - totalAmount).toFixed(2);
-            } else {
-                change.value = "";
+
+             function addOrder() {
+            carts.textContent = "";
+            let totalAmount = 0;
+            if (parseFloat(qty2.value) > 0) {
+                var order = qty2.value.toString() + 'pc/s x ' + price2.textContent + '-----' + product2.textContent + '-----Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+                carts.textContent += order;
+                totalAmount += parseFloat(qty2.value) * parseFloat(price2.textContent);
             }
-        }
-        document.getElementById('cash').onkeyup = calculateChange;
+ total.value = totalAmount.toFixed(2);
+            calculateChange();
+}
+          function addOrder() {
+            carts.textContent = "";
+            let totalAmount = 0;
+            if (parseFloat(qty3.value) > 0) {
+                var order = qty3.value.toString() + 'pc/s x ' + price3.textContent + '-----' + product3.textContent + '-----Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+                carts.textContent += order;
+                totalAmount += parseFloat(qty3.value) * parseFloat(price3.textContent);
+            }
+ total.value = totalAmount.toFixed(2);
+            calculateChange();
+}
+            function addOrder() {
+            carts.textContent = "";
+            let totalAmount = 0;
+            if (parseFloat(qty4.value) > 0) {
+                var order = qty4.value.toString() + 'pc/s x ' + price4.textContent + '-----' + product4.textContent + '-----Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+                carts.textContent += order;
+                totalAmount += parseFloat(qty4.value) * parseFloat(price4.textContent);
+            }
+ total.value = totalAmount.toFixed(2);
+            calculateChange();
+}
+
+           function addOrder() {
+            carts.textContent = "";
+            let totalAmount = 0;
+            if (parseFloat(qty5.value) > 0) {
+                var order = qty5.value.toString() + 'pc/s x ' + price5.textContent + '-----' + product5.textContent + '-----Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+                carts.textContent += order;
+                totalAmount += parseFloat(qty5.value) * parseFloat(price5.textContent);
+            }
+ total.value = totalAmount.toFixed(2);
+            calculateChange();
+}
+             function addOrder() {
+            carts.textContent = "";
+            let totalAmount = 0;
+            if (parseFloat(qty6.value) > 0) {
+                var order = qty6.value.toString() + 'pc/s x ' + price6.textContent + '-----' + product6.textContent + '-----Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+                carts.textContent += order;
+                totalAmount += parseFloat(qty6.value) * parseFloat(price6.textContent);
+            }
+ total.value = totalAmount.toFixed(2);
+            calculateChange();
+}
