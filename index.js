@@ -70,7 +70,17 @@
                 <input type="number" class="form-control" id="cash" placeholder="Cash Tendered" />
                 <input type="text" class="form-control border-0" id="change" readonly placeholder="Change" />
             </div>
-            <script>
+        </div>
+    </div>
+    <br><br>
+    <div class="card text-center">
+        <div class="card-footer text-body-secondary">
+            Owned By: Sandra Arambulo
+        </div>
+    </div>
+
+
+    <script>
         var products = [
         { id: 1, name: "A Gentle Reminder", price: 350.00 },
         { id: 2, name: "Atomic Habits", price: 370.00 },
@@ -127,16 +137,8 @@
         }
     }
       </script>
+    
 
-        
-        </div>
-    </div>
-    <br><br>
-    <div class="card text-center">
-        <div class="card-footer text-body-secondary">
-            Owned By: Sandra Arambulo
-        </div>
-    </div>
     <!-- Bootstrap JS bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
