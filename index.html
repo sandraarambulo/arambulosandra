@@ -59,7 +59,7 @@
              <div class="col-4 text-center">
                 <label id="product5">Ugly Love </label>
                 <img src="Ugly Love.jpg" style="width: 300px;height: 400px;" class="img-thumbnail" /><br>
-                <label for="product6" id="price6">400.00</label>
+                <label for="product6" id="price6">980.00</label>
                 <input type="number" class="form-control" id="qty6" placeholder="Enter quantity" /><br>
             </div>
             <div class="col-4">
@@ -77,6 +77,66 @@
             Owned By: Sandra Arambulo
         </div>
     </div>
+
+
+    <script>
+        var products = [
+        { id: 1, name: "A Gentle Reminder", price: 350.00 },
+        { id: 2, name: "Atomic Habits", price: 370.00 },
+        { id: 3, name: "The 48 Laws of Power", price: 550.00 },
+        { id: 4, name: "The Mountain is You", price: 550.00 },
+        { id: 5, name: "The Pivot Year", price: 400.00 },
+        { id: 6, name: "Ugly Love", price: 980.00 },
+    ];
+    
+    
+    var qtyInputs = document.querySelectorAll('[id^="qty"]');
+    var carts = document.getElementById("carts");
+    var totalInput = document.getElementById("total");
+    var cashInput = document.getElementById("cash");
+    var changeInput = document.getElementById("change");
+    
+    
+    qtyInputs.forEach(function(qtyInput) {
+        qtyInput.addEventListener("input", addOrder);
+    });
+    
+    cashInput.addEventListener("input", calculateChange);
+    
+    
+    function addOrder() {
+        carts.textContent = ""; // Clear previous cart content
+    
+        var total = 0;
+    
+        qtyInputs.forEach(function(qtyInput, index) {
+            var qty = parseFloat(qtyInput.value);
+            if (qty > 0) {
+                var product = products[index];
+                var order = qty + " pcs x " + product.name + " - Php " + (qty * product.price).toFixed(2) + "\n";
+                carts.textContent += order;
+                total += qty * product.price;
+            }
+        });
+    
+        totalInput.value = total.toFixed(2); // Update total
+        calculateChange(); // Recalculate change
+    }
+    
+    
+    function calculateChange() {
+        var total = parseFloat(totalInput.value);
+        var cash = parseFloat(cashInput.value);
+    
+        if (!isNaN(total) && !isNaN(cash)) {
+            var change = cash - total;
+            changeInput.value = change.toFixed(2);
+        } else {
+            changeInput.value = "";
+        }
+    }
+      </script>
+    
 
     <!-- Bootstrap JS bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
